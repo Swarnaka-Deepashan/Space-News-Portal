@@ -1,8 +1,12 @@
+import { Box } from "@mui/material";
+import TopStoryCard from "../components/TopStoryCard";
 
 const HomePage = () => {
   return (
-    <div>HomePage</div>
-  )
-}
+    <Box>
+      <TopStoryCard />
+    </Box>
+  );
+};
 
-export default HomePage
+export default HomePage;
