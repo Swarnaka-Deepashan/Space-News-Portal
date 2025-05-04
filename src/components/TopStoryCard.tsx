@@ -75,8 +75,8 @@ const TopStoryCard: React.FC = () => {
     return (
       <Box
         sx={{
-          mx: { xs: "25px", sm: "25px" }, //Todo : Reduce mx for xs screens
-          p: "25px",
+          mx: { xs: "15px", sm: "25px" }, //Todo : Reduce mx for xs screens
+          p: "15px",
           bgcolor: "#1B1B1B",
         }}
       >
@@ -174,8 +174,8 @@ const TopStoryCard: React.FC = () => {
           <Grid size={{ xs: 12, md: 4 }}>
             <Box
               sx={{
-                width: { xs: "calc(100vw - 100px)", md: "100%" },
-                height: { xs: "calc(100vw - 100px)", md: "100%" },
+                width: { xs: "calc(100vw - 60px)", sm: "100%" },
+                height: { xs: "calc(100vw - 60px)", sm: "100%" },
                 //  aspectRatio: {xs:"1 / 1"}
               }}
             >
