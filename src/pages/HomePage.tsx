@@ -22,13 +22,14 @@ const HomePage = () => {
     const fetchNewsData = async () => {
       try {
         dispatch(setNewsLoadingState(true));
+        // dispatch(setNewsErrorState(false));
+
 
         const response = await fetchNews();
 
         if (response && response.results.length > 0) {
           dispatch(setNews(response.results));
           dispatch(setNewsErrorState(false));
-          notifyError("Failed to fetch News.");
         } else {
           dispatch(setNewsErrorState(true));
         }
@@ -37,7 +38,7 @@ const HomePage = () => {
 
         if (axios.isAxiosError(err)) {
           console.error(err.message);
-          console.error(err.code);
+          console.error(err.code); //remove this
           notifyError(err.message);
         } else {
           console.error("Failed to fetch News.");
