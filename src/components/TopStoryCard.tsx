@@ -5,6 +5,7 @@ import EventNoteOutlinedIcon from "@mui/icons-material/EventNoteOutlined";
 import LanguageOutlinedIcon from "@mui/icons-material/LanguageOutlined";
 import InfoChip from "./InfoChip";
 import { useAppSelector } from "../app/hook";
+import { formatPublishedDate } from "../utils/helper";
 
 const TopStoryCard: React.FC = () => {
   const news = useAppSelector((state) => state.news.newsData);
@@ -150,19 +151,19 @@ const TopStoryCard: React.FC = () => {
             >
               {/* InfoChip - Author */}
               <InfoChip
-                text={"Jeff Foust"}
+                text={ topStory.authors[0].name || "Author not available"}
                 IconComponent={DrawOutlinedIcon}
                 gradientStartColor={"#19C9CE"}
                 gradientEndColor={"#0D6568"}
               />
               <InfoChip
-                text={"4th of April"}
+                text={ formatPublishedDate(topStory.published_at) || "Date not available"}
                 IconComponent={EventNoteOutlinedIcon}
                 gradientStartColor={"#CE191C"}
                 gradientEndColor={"#680D0E"}
               />
               <InfoChip
-                text={"NASA Spaceflight"}
+                text={ topStory.news_site || "Source not available"}
                 IconComponent={LanguageOutlinedIcon}
                 gradientStartColor={"#19CE55"}
                 gradientEndColor={"#0D6831"}
