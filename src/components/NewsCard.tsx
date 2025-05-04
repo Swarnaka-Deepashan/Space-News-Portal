@@ -1,7 +1,12 @@
 import { Box, Typography } from "@mui/material";
-import sampleImage02 from "../assets/images/sample-image-02.jpg";
 
-const NewsCard = () => {
+export interface NewsCardProps {
+  title : string;
+  summary : string 
+  imagePath : string 
+}
+
+const NewsCard : React.FC<NewsCardProps> = ({title,summary,imagePath}) => {
   return (
     // Main wrapper
     <Box
@@ -40,7 +45,7 @@ const NewsCard = () => {
               objectFit: "cover",
               // borderRadius: "15px"
             }}
-            src={sampleImage02}
+            src={imagePath}
             alt="Top story image"
           />
         </Box>
@@ -79,9 +84,8 @@ const NewsCard = () => {
             },
           }}
         >
-          Waltz defends ‘Golden Do amid defends golden amid Waltz defends
-          ‘Golden Do amid defends golden amid Waltz defends ‘Golden Do amid
-          defends golden amid
+          
+          {title}
         </Typography>
 
         {/* Text */}
@@ -106,10 +110,8 @@ const NewsCard = () => {
             },
           }}
         >
-          Waltz defends ‘Golden Dome’ missile shield amid Waltz defends ‘Golden
-          Dome’ missile shield amid Waltz defends ‘Golden Dome’ missile shield
-          Waltz defends ‘Golden Dome’ missile shield amid Waltz defends ‘Golden
-          Dome’ missile shield amid Waltz defends ‘Golden Dome’ missile shield
+          
+          {summary}
         </Typography>
 
         {/* Bottom section */}
