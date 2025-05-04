@@ -7,7 +7,7 @@ export interface NewsState {
   newsData: News[];
   newsErrorState: boolean;
   newsLoadingState: boolean;
-  newsByIdData: News;
+  newsByIdData: News | null;
 }
 
 // Define the initial state using that type
@@ -15,20 +15,21 @@ const initialState: NewsState = {
   newsData: [],
   newsErrorState: false,
   newsLoadingState: true,
-  newsByIdData: {
-    id: -99,
-    title: "",
-    authors: [],
-    url: "",
-    image_url: "",
-    news_site: "",
-    summary: "",
-    published_at: "",
-    updated_at: "",
-    featured: false,
-    launches: [],
-    events: [],
-  },
+  newsByIdData: null,
+  // newsByIdData: {
+  //   id: -99,
+  //   title: "",
+  //   authors: [],
+  //   url: "",
+  //   image_url: "",
+  //   news_site: "",
+  //   summary: "",
+  //   published_at: "",
+  //   updated_at: "",
+  //   featured: false,
+  //   launches: [],
+  //   events: [],
+  // },
 };
 
 export const newsSlice = createSlice({
