@@ -7,9 +7,14 @@ import { fetchNews } from "../services/newsService";
 // import { useAppSelector } from 'app/hooks'
 import { useAppSelector,useAppDispatch } from "../app/hook";
 import { setNews, setNewsErrorState, setNewsLoadingState } from "../app/slices/newsSlice";
+import { notifyError } from "../utils/notifications";
+import axios from "axios";
 
 
 const HomePage = () => {
+
+  
+
   const news = useAppSelector((state) => state.news.newsData);
   const dispatch = useAppDispatch();
 
@@ -23,12 +28,21 @@ const HomePage = () => {
         if (response && response.results.length > 0) {
           dispatch(setNews(response.results));
           dispatch(setNewsErrorState(false));
+          notifyError("Failed to fetch News.");
         } else {
           dispatch(setNewsErrorState(true));
         }
       } catch (err) {
         dispatch(setNewsErrorState(true));
-        console.error(err, "Failed to fetch news.");
+
+        if (axios.isAxiosError(err)) {
+          console.error(err.message);
+          console.error(err.code);
+          notifyError(err.message);
+        } else {
+          console.error("Failed to fetch News.");
+          notifyError("Failed to fetch News.");
+        }
       } finally {
         dispatch(setNewsLoadingState(false));
       }
