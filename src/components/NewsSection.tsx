@@ -15,11 +15,12 @@ const NewsSection = () => {
         sx={{
           bgcolor: "#1B1B1B",
           width: "auto",
-          height: "500px",
+          height: "70dvh",
           mx: "25px",
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
+          mt: "100px"
         }}
       >
         <CircularProgress size={60} />
@@ -31,7 +32,7 @@ const NewsSection = () => {
         sx={{
           bgcolor: "#1B1B1B",
           width: "auto",
-          height: "500px",
+          height: "70dvh",
           mx: "25px",
           display: "flex",
           justifyContent: "center",
@@ -54,7 +55,7 @@ const NewsSection = () => {
         sx={{
           bgcolor: "#1B1B1B",
           width: "auto",
-          height: "500px",
+          height: "70dvh",
           mx: "25px",
           display: "flex",
           justifyContent: "center",
