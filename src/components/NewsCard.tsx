@@ -2,7 +2,7 @@ import { Box, Button, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 // import { useParams } from "react-router-dom";
 export interface NewsCardProps {
-  id:number
+  id:string
   title : string;
   summary : string 
   imagePath : string 

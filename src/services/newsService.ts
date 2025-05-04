@@ -17,7 +17,7 @@ export const fetchNews = async (): Promise<NewsResponse | null> => {
 };
 
 export const fetchNewsById = async (
-  id: number
+  id: string
 ): Promise<News | null> => {
   try {
     return await apiRequest<News>(`/v4/articles/${id}`, "GET");

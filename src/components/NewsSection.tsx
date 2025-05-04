@@ -75,7 +75,7 @@ const NewsSection = () => {
         {news.map((newsObj) => (
           <Grid key={newsObj.id} size={{ xs: 12, md: 6 }}>
             <NewsCard
-              id={newsObj.id}
+              id={String(newsObj.id)}
               title={newsObj.title}
               summary={newsObj.summary}
               imagePath={newsObj.image_url}
