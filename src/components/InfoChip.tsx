@@ -19,7 +19,7 @@ const InfoChip: React.FC<InfoChipProps> = ({
     <Box
       sx={{
         height: "40px",
-        width: "150px",
+        width: "160px",
         borderRadius: "50px",
         background: `linear-gradient(45deg, ${gradientStartColor} 30%, ${gradientEndColor} 90%)`,
         display: "flex",
@@ -35,12 +35,13 @@ const InfoChip: React.FC<InfoChipProps> = ({
         sx={{
           color: "white",
           fontSize: "20px",
-          fontStyle: "italic",
           maxWidth: "100%",
           overflow: "hidden",
           textWrap: "nowrap",
           textOverflow: "ellipsis",
           flex: 5,
+          fontStyle: "italic",
+          fontWeight:"300"
         }}
       >
         {text}
