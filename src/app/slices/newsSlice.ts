@@ -13,7 +13,7 @@ export interface NewsState {
 const initialState: NewsState = {
     newsData: [],
   newsErrorState: false,
-  newsLoadingState: false,
+  newsLoadingState: true,
 };
 
 export const newsSlice = createSlice({
