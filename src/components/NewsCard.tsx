@@ -17,7 +17,13 @@ const NewsCard = () => {
       }}
     >
       {/* Image placeholder */}
-      <Box sx={{ height: "120px", width: "120px", border: "1px solid red" }}>
+      <Box
+        sx={{
+          height: "120px",
+          width: "120px",
+          //  border: "1px solid red"
+        }}
+      >
         <Box
           sx={{
             //   width: { xs: "calc(100vw - 100px)", md: "100%" },
@@ -45,44 +51,130 @@ const NewsCard = () => {
           width: "calc(100% - 100px)",
           height: "calc(100% - 20px)",
           overflow: "hidden",
+          display: "flex",
+          flexDirection: "column",
+          gap: "5px",
         }}
       >
         {/* Title */}
 
         <Typography
           sx={{
-            color: "white",
-            fontSize: "28px",
-            lineHeight: "30px",
+            //   mb: "5px",
+            color: "#E0E0E0",
+            fontSize: { xs: "22px", sm: "24px" },
+            lineHeight: "25px",
             // width: "calc(100% - 100px)",
-            border: "1px solid blue",
+            // border: "1px solid blue",
             display: "-webkit-box",
-            WebkitLineClamp: 2,
+            // WebkitLineClamp: 2,
+            WebkitLineClamp: { xs: 2, sm: 2 },
             WebkitBoxOrient: "vertical",
             overflow: "hidden",
             hyphens: "auto",
+            "@media(max-width : 450px)": {
+              fontSize: "18px",
+              lineHeight: "20px",
+              WebkitLineClamp: 3,
+            },
           }}
         >
-          Waltz defends ‘Golden Dome’ missile shield amid
+          Waltz defends ‘Golden Do amid defends golden amid Waltz defends
+          ‘Golden Do amid defends golden amid Waltz defends ‘Golden Do amid
+          defends golden amid
         </Typography>
+
+        {/* Text */}
         <Typography
           sx={{
-            color: "white",
+            //   mb: "5px",
+            color: "#E0E0E0",
+            opacity: 0.5,
             fontSize: "16px",
-            lineHeight: "30px",
+            lineHeight: "20px",
             // width: "calc(100% - 100px)",
-            border: "1px solid red",
+            // border: "1px solid red",
             display: "-webkit-box",
-            WebkitLineClamp: 3,
+            // WebkitLineClamp: 2,
+            WebkitLineClamp: { xs: 2, sm: 2 },
             WebkitBoxOrient: "vertical",
             overflow: "hidden",
             hyphens: "auto",
+            "@media(max-width : 450px)": {
+              fontSize: "14px",
+              lineHeight: "18px",
+            },
           }}
         >
           Waltz defends ‘Golden Dome’ missile shield amid Waltz defends ‘Golden
           Dome’ missile shield amid Waltz defends ‘Golden Dome’ missile shield
-          amid
+          Waltz defends ‘Golden Dome’ missile shield amid Waltz defends ‘Golden
+          Dome’ missile shield amid Waltz defends ‘Golden Dome’ missile shield
         </Typography>
+
+        {/* Bottom section */}
+        <Box sx={{ display: "flex", gap: "5px" }}>
+          <Box
+            sx={{
+              // border: "1px solid green",
+              width: "fit-content",
+              height: "20px",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              px: "8px",
+              borderRadius: "5px",
+              bgcolor: "green",
+            }}
+          >
+            <Typography
+              sx={{
+                color: "#E0E0E0",
+                fontStyle: "italic",
+                fontWeight: "300",
+                fontSize: "14px",
+              }}
+            >
+              Read more
+            </Typography>
+          </Box>
+          <Box
+            sx={{
+              // border: "1px solid green",
+              width: "fit-content",
+              height: "20px",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              bgcolor: "#364153",
+              px: "8px",
+              borderRadius: "5px",
+            }}
+          >
+            <Typography
+              sx={{
+                display: { xs: "none", sm: "block" },
+                color: "#E0E0E0",
+                fontStyle: "italic",
+                fontWeight: "300",
+                fontSize: "14px",
+              }}
+            >
+              4 minutes read
+            </Typography>
+            <Typography
+              sx={{
+                display: { xs: "block", sm: "none" },
+                color: "#E0E0E0",
+                fontStyle: "italic",
+                fontWeight: "300",
+                fontSize: "14px",
+              }}
+            >
+              4 mins
+            </Typography>
+          </Box>
+        </Box>
       </Box>
     </Box>
   );
