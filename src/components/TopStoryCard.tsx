@@ -1,31 +1,30 @@
 import { Box, Grid, Typography } from "@mui/material";
+import sampleImage01 from "../assets/images/sample-image-01.jpg";
 
 const TopStoryCard = () => {
   return (
     <Box
       sx={{
-        border: "1px solid blue",
-        height: "80dvh",
-        // height: "600px",
         mx: "25px",
         p: "25px",
         bgcolor: "#1B1B1B",
+        // border: "1px solid blue",
+        // maxHeight: "80dvh",
+        // height: "80dvh",
+        // height: "600px",
       }}
     >
-      <Grid
-        container
-        spacing={"25px"}
-        sx={{ border: "1px solid red", height: "100%" }}
-      >
+      <Grid container spacing={"25px"} sx={{}}>
         {/* Text and info */}
         <Grid
           size={{ xs: 8 }}
           sx={{
-            border: "1px solid white",
             display: "flex",
             flexDirection: "column",
             gap: "20px",
-            height: "100%",
+            // border: "1px solid white",
+            // maxHeight: "80dvh",
+            // minHeight: "60dvh",
           }}
         >
           {/* Title */}
@@ -33,15 +32,19 @@ const TopStoryCard = () => {
             sx={{
               color: "green",
               fontSize: "64px",
-              lineHeight: "80px",
-              border: "1px solid blue",
-              flex: 3,
+              lineHeight: "70px",
+              maxWidth: "100%",
+              display: "-webkit-box",
+              WebkitLineClamp: 3,
+              WebkitBoxOrient: "vertical",
               overflow: "hidden",
-              textOverflow: "ellipsis",
-              // height:"100%"
+              hyphens: "auto",
+              // overflowWrap:"break-word"
+              // border: "1px solid blue",
             }}
           >
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            NASA delays astrophysics mission call for proposals amid budget
+            uncertainties.
           </Typography>
           {/* Subtitle */}
           <Typography
@@ -49,25 +52,61 @@ const TopStoryCard = () => {
               color: "green",
               fontSize: "28px",
               lineHeight: "40px",
-              border: "1px solid blue",
-              flex: 4,
+              maxWidth: "100%",
+              display: "-webkit-box",
+              WebkitLineClamp: 6,
+              WebkitBoxOrient: "vertical",
               overflow: "hidden",
-              textOverflow: "ellipsis",
-              // height:"100%"
+              hyphens: "auto",
+              // wordWrap: "break-word", 
+              // overflowWrap: "break-word",
+              // overflowWrap:"break-word"
+              // textWrap:"wrap"
+              // whiteSpace:"pre-wrap"
+              // border: "1px solid blue",
             }}
           >
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea laborum
-            minus dolores, tenetur cupiditate perspiciatis quasi magni ipsa
-            deleniti? Facilis nostrum illo quia fugiat perferendis numquam quos
-            debitis suscipit quae?. Lorem ipsum dolor sit amet consectetur
-            adipisicing elit. Mollitia distinctio, cum atque aut vel labore a
-            ratione ea consectetur, eos eveniet? Quo quod ratione repudiandae
-            esse optio ea reiciendis ipsa.
+            minus dolores, tenetur cupiditatitis suscipit quae?. Lorem ipsum
+            dolor, sit amet consectetur adipisicing elit. Debitis magnam, quo
+            assumenda cupiditate odit ipsum porro facilis tempora eum unde,
+            tenetur animi eligendi perspiciatis dignissimos. Quasi voluptatum
+            animi at officiis.
           </Typography>
-          <Box sx={{ flex: 1, border: "1px solid red" }}></Box>
+          {/* News Info Section */}
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "start",
+              alignItems: "center",
+              gap: "10px",
+              // flex: 1,
+              // border: "1px solid red",
+            }}
+          >
+            
+          </Box>
         </Grid>
+
         {/* Image placeholder */}
-        <Grid size={{ xs: 4 }} sx={{ border: "1px solid white" }}></Grid>
+        <Grid
+          size={{ xs: 4 }}
+        >
+          <Box
+            sx={{
+              width: "100%",
+              height: "100%",
+            }}
+          >
+            <img
+              width="100%"
+              height="100%"
+              style={{ objectFit: "cover", borderRadius: "15px" }}
+              src={sampleImage01}
+              alt="Top story image"
+            />
+          </Box>
+        </Grid>
       </Grid>
     </Box>
   );
