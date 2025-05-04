@@ -1,5 +1,9 @@
 import { Box, Grid, Typography } from "@mui/material";
 import sampleImage01 from "../assets/images/sample-image-01.jpg";
+import DrawOutlinedIcon from "@mui/icons-material/DrawOutlined";
+import EventNoteOutlinedIcon from '@mui/icons-material/EventNoteOutlined';
+import LanguageOutlinedIcon from '@mui/icons-material/LanguageOutlined';
+import InfoChip from "./InfoChip";
 
 const TopStoryCard = () => {
   return (
@@ -84,7 +88,25 @@ const TopStoryCard = () => {
               // border: "1px solid red",
             }}
           >
-            
+            {/* InfoChip - Author */}
+            <InfoChip
+              text={"Jeff Foust"}
+              IconComponent={DrawOutlinedIcon}
+              gradientStartColor={"#19C9CE"}
+              gradientEndColor={"#0D6568"}
+            />
+            <InfoChip
+              text={"4th of April"}
+              IconComponent={EventNoteOutlinedIcon}
+              gradientStartColor={"#CE191C"}
+              gradientEndColor={"#680D0E"}
+            />
+            <InfoChip
+              text={"NASA Spaceflight"}
+              IconComponent={LanguageOutlinedIcon}
+              gradientStartColor={"#19CE55"}
+              gradientEndColor={"#0D6831"}
+            />
           </Box>
         </Grid>
 
