@@ -8,6 +8,7 @@ import HomePage from "./pages/HomePage";
 import SFProDisplay from "./assets/fonts/SF-Pro-Display-Regular.otf";
 import SFProDisplayLightItalic from "./assets/fonts/SF-Pro-Display-LightItalic.otf";
 import VeniteAdoremus from "./assets/fonts/VeniteAdoremus-rgRBA.ttf";
+import { ToastContainer } from "react-toastify";
 
 const theme = createTheme({
   typography: {
@@ -52,6 +53,7 @@ function App() {
       {globalStyles}
       <div className="container">
         <HomePage />
+        <ToastContainer />
       </div>
     </ThemeProvider>
   );
