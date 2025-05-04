@@ -1,18 +1,23 @@
-import { Box, Button, Typography } from "@mui/material";
+import { Box, Button, Typography, useMediaQuery } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import { generateTimeLabel } from "../utils/helper";
 // import { useParams } from "react-router-dom";
 export interface NewsCardProps {
-  id:string
-  title : string;
-  summary : string 
-  imagePath : string 
+  id: string;
+  title: string;
+  summary: string;
+  imagePath: string;
 }
 
-const NewsCard : React.FC<NewsCardProps> = ({id,title,summary,imagePath}) => {
+const NewsCard: React.FC<NewsCardProps> = ({
+  id,
+  title,
+  summary,
+  imagePath,
+}) => {
+  const isExtraSmallScreen = useMediaQuery("(max-width:600px)");
 
-  // let {search} = useParams()
   const navigate = useNavigate();
-
 
   return (
     // Main wrapper
@@ -124,7 +129,7 @@ const NewsCard : React.FC<NewsCardProps> = ({id,title,summary,imagePath}) => {
           <Box
             component={Button}
             onClick={() => {
-              navigate(`/news/${id}`)
+              navigate(`/news/${id}`);
             }}
             sx={{
               // border: "1px solid green",
@@ -165,25 +170,15 @@ const NewsCard : React.FC<NewsCardProps> = ({id,title,summary,imagePath}) => {
           >
             <Typography
               sx={{
-                display: { xs: "none", sm: "block" },
+                // display: { xs: "none", sm: "block" },
                 color: "#E0E0E0",
                 fontStyle: "italic",
                 fontWeight: "300",
                 fontSize: "14px",
               }}
             >
-              4 minutes read
-            </Typography>
-            <Typography
-              sx={{
-                display: { xs: "block", sm: "none" },
-                color: "#E0E0E0",
-                fontStyle: "italic",
-                fontWeight: "300",
-                fontSize: "14px",
-              }}
-            >
-              4 mins
+              {/* 4 minutes read */}
+              {generateTimeLabel(isExtraSmallScreen)}
             </Typography>
           </Box>
         </Box>
