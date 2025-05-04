@@ -71,7 +71,11 @@ const NewsSection = () => {
     );
   } else {
     return (
-      <Grid container spacing={"15px"} sx={{ mx: "25px", mt: "100px" }}>
+      <Grid
+        container
+        spacing={"15px"}
+        sx={{ mx: { xs: "15px", sm: "25px" }, mt: "100px" }}
+      >
         {news.map((newsObj) => (
           <Grid key={newsObj.id} size={{ xs: 12, md: 6 }}>
             <NewsCard
