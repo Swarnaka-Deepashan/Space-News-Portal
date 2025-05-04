@@ -5,6 +5,7 @@ import DrawOutlinedIcon from "@mui/icons-material/DrawOutlined";
 import EventNoteOutlinedIcon from "@mui/icons-material/EventNoteOutlined";
 import LanguageOutlinedIcon from "@mui/icons-material/LanguageOutlined";
 import { useAppSelector } from "../app/hook";
+import { formatPublishedDate } from "../utils/helper";
 
 const NewsDetail = () => {
 
@@ -158,20 +159,25 @@ const NewsDetail = () => {
                 </Typography>
                 <Box sx={{ display: "flex", gap: "10px", flexWrap: "wrap" }}>
                   <InfoChip
-                    text={newsByIdData.authors[0]?.name}
+                    text={
+                      newsByIdData.authors[0].name || "Author not available"
+                    }
                     //   text={"Name"}
                     IconComponent={DrawOutlinedIcon}
                     gradientStartColor={"#19C9CE"}
                     gradientEndColor={"#0D6568"}
                   />
                   <InfoChip
-                    text={"4th of April"}
+                    text={
+                      formatPublishedDate(newsByIdData.published_at) ||
+                      "Date not available"
+                    }
                     IconComponent={EventNoteOutlinedIcon}
                     gradientStartColor={"#CE191C"}
                     gradientEndColor={"#680D0E"}
                   />
                   <InfoChip
-                    text={newsByIdData.news_site}
+                    text={newsByIdData.news_site || "Source not available"}
                     IconComponent={LanguageOutlinedIcon}
                     gradientStartColor={"#19CE55"}
                     gradientEndColor={"#0D6831"}
