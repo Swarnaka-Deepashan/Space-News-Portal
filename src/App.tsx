@@ -9,6 +9,8 @@ import SFProDisplay from "./assets/fonts/SF-Pro-Display-Regular.otf";
 import SFProDisplayLightItalic from "./assets/fonts/SF-Pro-Display-LightItalic.otf";
 import VeniteAdoremus from "./assets/fonts/VeniteAdoremus-rgRBA.ttf";
 import { ToastContainer } from "react-toastify";
+import { Route, Routes } from "react-router-dom";
+import NewsDetailPage from "./pages/NewsDetailPage";
 
 const theme = createTheme({
   typography: {
@@ -52,7 +54,10 @@ function App() {
       <CssBaseline />
       {globalStyles}
       <div className="container">
-        <HomePage />
+        <Routes>
+          <Route index element={<HomePage />} />
+          <Route path="news/:id" element={<NewsDetailPage />} />
+        </Routes>
         <ToastContainer />
       </div>
     </ThemeProvider>
