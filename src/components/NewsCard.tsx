@@ -1,12 +1,19 @@
-import { Box, Typography } from "@mui/material";
-
+import { Box, Button, Typography } from "@mui/material";
+import { useNavigate } from "react-router-dom";
+// import { useParams } from "react-router-dom";
 export interface NewsCardProps {
+  id:number
   title : string;
   summary : string 
   imagePath : string 
 }
 
-const NewsCard : React.FC<NewsCardProps> = ({title,summary,imagePath}) => {
+const NewsCard : React.FC<NewsCardProps> = ({id,title,summary,imagePath}) => {
+
+  // let {search} = useParams()
+  const navigate = useNavigate();
+
+
   return (
     // Main wrapper
     <Box
@@ -84,7 +91,6 @@ const NewsCard : React.FC<NewsCardProps> = ({title,summary,imagePath}) => {
             },
           }}
         >
-          
           {title}
         </Typography>
 
@@ -110,13 +116,16 @@ const NewsCard : React.FC<NewsCardProps> = ({title,summary,imagePath}) => {
             },
           }}
         >
-          
           {summary}
         </Typography>
 
         {/* Bottom section */}
         <Box sx={{ display: "flex", gap: "5px" }}>
           <Box
+            component={Button}
+            onClick={() => {
+              navigate(`/news/${id}`)
+            }}
             sx={{
               // border: "1px solid green",
               width: "fit-content",
@@ -127,6 +136,7 @@ const NewsCard : React.FC<NewsCardProps> = ({title,summary,imagePath}) => {
               px: "8px",
               borderRadius: "5px",
               bgcolor: "green",
+              textTransform: "initial",
             }}
           >
             <Typography
