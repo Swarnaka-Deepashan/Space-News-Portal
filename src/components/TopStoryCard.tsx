@@ -1,5 +1,5 @@
 import { Box, Grid, Typography } from "@mui/material";
-import sampleImage01 from "../assets/images/sample-image-01.jpg";
+import sampleImage08 from "../assets/images/sample-image-08.jpg";
 import DrawOutlinedIcon from "@mui/icons-material/DrawOutlined";
 import EventNoteOutlinedIcon from '@mui/icons-material/EventNoteOutlined';
 import LanguageOutlinedIcon from '@mui/icons-material/LanguageOutlined';
@@ -9,42 +9,38 @@ const TopStoryCard = () => {
   return (
     <Box
       sx={{
-        mx: "25px",
+        mx: {xs:"25px",sm:"25px"}, //Todo : Reduce mx for xs screens
         p: "25px",
         bgcolor: "#1B1B1B",
-        // border: "1px solid blue",
-        // maxHeight: "80dvh",
-        // height: "80dvh",
-        // height: "600px",
       }}
     >
-      <Grid container spacing={"25px"} sx={{}}>
+      <Grid
+        container
+        spacing={"25px"}
+        direction={{ xs: "column-reverse", md: "row" }}
+      >
         {/* Text and info */}
         <Grid
-          size={{ xs: 8 }}
+          size={{ xs: 12, md: 8 }}
           sx={{
             display: "flex",
             flexDirection: "column",
-            gap: "20px",
-            // border: "1px solid white",
-            // maxHeight: "80dvh",
-            // minHeight: "60dvh",
+            gap: { xs: "10px", sm: "15px", md: "20px" },
           }}
         >
           {/* Title */}
           <Typography
             sx={{
-              color: "green",
-              fontSize: "64px",
-              lineHeight: "70px",
+              color: "#E0E0E0",
+              // fontSize: "64px",
+              fontSize: { xs: "36px", sm: "48px", md: "64px" },
+              lineHeight: { xs: "40px", sm: "55px", md: "70px" },
               maxWidth: "100%",
               display: "-webkit-box",
               WebkitLineClamp: 3,
               WebkitBoxOrient: "vertical",
               overflow: "hidden",
               hyphens: "auto",
-              // overflowWrap:"break-word"
-              // border: "1px solid blue",
             }}
           >
             NASA delays astrophysics mission call for proposals amid budget
@@ -53,21 +49,17 @@ const TopStoryCard = () => {
           {/* Subtitle */}
           <Typography
             sx={{
-              color: "green",
-              fontSize: "28px",
-              lineHeight: "40px",
+              color: "#E0E0E0",
+              // fontSize: "28px",
+              fontSize: { xs: "18px", sm: "22px", md: "28px" },
+              lineHeight: { xs: "25px", sm: "30px", md: "35px" },
+              // lineHeight: "35px",
               maxWidth: "100%",
               display: "-webkit-box",
               WebkitLineClamp: 6,
               WebkitBoxOrient: "vertical",
               overflow: "hidden",
               hyphens: "auto",
-              // wordWrap: "break-word", 
-              // overflowWrap: "break-word",
-              // overflowWrap:"break-word"
-              // textWrap:"wrap"
-              // whiteSpace:"pre-wrap"
-              // border: "1px solid blue",
             }}
           >
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea laborum
@@ -84,8 +76,7 @@ const TopStoryCard = () => {
               justifyContent: "start",
               alignItems: "center",
               gap: "10px",
-              // flex: 1,
-              // border: "1px solid red",
+              flexWrap: "wrap",
             }}
           >
             {/* InfoChip - Author */}
@@ -111,20 +102,19 @@ const TopStoryCard = () => {
         </Grid>
 
         {/* Image placeholder */}
-        <Grid
-          size={{ xs: 4 }}
-        >
+        <Grid size={{ xs: 12, md: 4 }}>
           <Box
             sx={{
-              width: "100%",
-              height: "100%",
+              width: { xs: "calc(100vw - 100px)", md: "100%" },
+              height: { xs: "calc(100vw - 100px)", md: "100%" },
+              //  aspectRatio: {xs:"1 / 1"}
             }}
           >
             <img
               width="100%"
               height="100%"
               style={{ objectFit: "cover", borderRadius: "15px" }}
-              src={sampleImage01}
+              src={sampleImage08}
               alt="Top story image"
             />
           </Box>
