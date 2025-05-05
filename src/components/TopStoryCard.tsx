@@ -1,11 +1,14 @@
-import { Box, CircularProgress, Grid, Typography } from "@mui/material";
+import { Box, CircularProgress, Grid, Typography, useMediaQuery } from "@mui/material";
 import sampleImage08 from "../assets/images/sample-image-08.jpg";
 import DrawOutlinedIcon from "@mui/icons-material/DrawOutlined";
 import EventNoteOutlinedIcon from "@mui/icons-material/EventNoteOutlined";
 import LanguageOutlinedIcon from "@mui/icons-material/LanguageOutlined";
 import InfoChip from "./InfoChip";
 import { useAppSelector } from "../app/hook";
-import { formatPublishedDate } from "../utils/helper";
+import { formatPublishedDate, generateTimeLabel } from "../utils/helper";
+import ReadMoreButton from "./ReadMoreButton";
+import { useNavigate } from "react-router-dom";
+import ReadTimeLabel from "./ReadTimeLabel";
 
 const TopStoryCard: React.FC = () => {
   const news = useAppSelector((state) => state.news.newsData);
@@ -15,6 +18,10 @@ const TopStoryCard: React.FC = () => {
   const newsErrorState = useAppSelector((state) => state.news.newsErrorState);
 
   const topStory = news[0]; // this can be undefinedd
+  const navigate = useNavigate();
+  const isExtraSmallScreen = useMediaQuery("(max-width:600px)");
+
+
 
   if (newsLoadingState) {
     return (
@@ -151,19 +158,22 @@ const TopStoryCard: React.FC = () => {
             >
               {/* InfoChip - Author */}
               <InfoChip
-                text={ topStory.authors[0].name || "Author not available"}
+                text={topStory.authors[0].name || "Author not available"}
                 IconComponent={DrawOutlinedIcon}
                 gradientStartColor={"#19C9CE"}
                 gradientEndColor={"#0D6568"}
               />
               <InfoChip
-                text={ formatPublishedDate(topStory.published_at) || "Date not available"}
+                text={
+                  formatPublishedDate(topStory.published_at) ||
+                  "Date not available"
+                }
                 IconComponent={EventNoteOutlinedIcon}
                 gradientStartColor={"#CE191C"}
                 gradientEndColor={"#680D0E"}
               />
               <InfoChip
-                text={ topStory.news_site || "Source not available"}
+                text={topStory.news_site || "Source not available"}
                 IconComponent={LanguageOutlinedIcon}
                 gradientStartColor={"#19CE55"}
                 gradientEndColor={"#0D6831"}
@@ -178,8 +188,26 @@ const TopStoryCard: React.FC = () => {
                 width: { xs: "calc(100vw - 60px)", sm: "100%" },
                 height: { xs: "calc(100vw - 60px)", sm: "100%" },
                 //  aspectRatio: {xs:"1 / 1"}
+                position: "relative",
               }}
             >
+              <Box
+                sx={{
+                  position: "absolute",
+                  bottom: "10px",
+                  left: "10px",
+                  display: "flex",
+                  gap: "5px",
+                }}
+              >
+                <ReadMoreButton
+                  onClick={() => navigate(`/news/${topStory.id}`)}
+                />
+                <ReadTimeLabel
+                  isExtraSmallScreen={isExtraSmallScreen}
+                  generateTimeLabel={generateTimeLabel}
+                />
+              </Box>
               <img
                 width="100%"
                 height="100%"
