@@ -157,6 +157,23 @@ const NewsDetail = () => {
                     animi at officiis. */}
                   {newsByIdData.summary}
                 </Typography>
+                <Typography
+                  sx={{
+                    color: "#E0E0E0",
+                    fontSize: { xs: "18px", sm: "22px", md: "28px" },
+                    lineHeight: { xs: "25px", sm: "30px", md: "35px" },
+                    maxWidth: "100%",
+                    hyphens: "auto",
+                  }}
+                >
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea
+                  laborum minus Debitis magnam, quo assumenda cupiditate odit
+                  laborum minus Debitis magnam, quo assumenda cupiditate odit
+                  lab Debitis magnam, quo assumenda cupiditate odit
+                  ipsum porro facilis tempora eum unde, tenetur animi eligendi
+                  perspiciatis dignissimos. Quasi voluptatum animi at officiis.
+                  {/* {newsByIdData.summary} */}
+                </Typography>
                 <Box sx={{ display: "flex", gap: "10px", flexWrap: "wrap" }}>
                   <InfoChip
                     text={
