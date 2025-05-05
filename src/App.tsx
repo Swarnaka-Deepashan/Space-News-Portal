@@ -11,6 +11,8 @@ import VeniteAdoremus from "./assets/fonts/VeniteAdoremus-rgRBA.ttf";
 import { ToastContainer } from "react-toastify";
 import { Route, Routes } from "react-router-dom";
 import NewsDetailPage from "./pages/NewsDetailPage";
+import AboutPage from "./pages/AboutPage";
+import NotFoundPage from "./pages/NotFoundPage";
 
 const theme = createTheme({
   typography: {
@@ -57,6 +59,8 @@ function App() {
         <Routes>
           <Route index element={<HomePage />} />
           <Route path="news/:id" element={<NewsDetailPage />} />
+          <Route path="about" element={<AboutPage />} />
+          <Route path="*" element={<NotFoundPage />} />
         </Routes>
         <ToastContainer />
       </div>
