@@ -1,6 +1,8 @@
-import { Box, Button, Typography, useMediaQuery } from "@mui/material";
+import { Box, Typography, useMediaQuery } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { generateTimeLabel } from "../utils/helper";
+import ReadMoreButton from "./ReadMoreButton";
+import ReadTimeLabel from "./ReadTimeLabel";
 // import { useParams } from "react-router-dom";
 export interface NewsCardProps {
   id: string;
@@ -125,62 +127,12 @@ const NewsCard: React.FC<NewsCardProps> = ({
         </Typography>
 
         {/* Bottom section */}
-        <Box sx={{ display: "flex", gap: "5px" }}>
-          <Box
-            component={Button}
-            onClick={() => {
-              navigate(`/news/${id}`);
-            }}
-            sx={{
-              // border: "1px solid green",
-              width: "fit-content",
-              height: "20px",
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              px: "8px",
-              borderRadius: "5px",
-              bgcolor: "green",
-              textTransform: "initial",
-            }}
-          >
-            <Typography
-              sx={{
-                color: "#E0E0E0",
-                fontStyle: "italic",
-                fontWeight: "300",
-                fontSize: "14px",
-              }}
-            >
-              Read more
-            </Typography>
-          </Box>
-          <Box
-            sx={{
-              // border: "1px solid green",
-              width: "fit-content",
-              height: "20px",
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              bgcolor: "#364153",
-              px: "8px",
-              borderRadius: "5px",
-            }}
-          >
-            <Typography
-              sx={{
-                // display: { xs: "none", sm: "block" },
-                color: "#E0E0E0",
-                fontStyle: "italic",
-                fontWeight: "300",
-                fontSize: "14px",
-              }}
-            >
-              {/* 4 minutes read */}
-              {generateTimeLabel(isExtraSmallScreen)}
-            </Typography>
-          </Box>
+        <Box sx={{ display: "flex", gap: "5px", ml: "2px" }}>
+          <ReadMoreButton onClick={() => navigate(`/news/${id}`)} />
+          <ReadTimeLabel
+            isExtraSmallScreen={isExtraSmallScreen}
+            generateTimeLabel={generateTimeLabel}
+          />
         </Box>
       </Box>
     </Box>
