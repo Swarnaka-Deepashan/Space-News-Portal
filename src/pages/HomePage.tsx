@@ -9,6 +9,7 @@ import { useAppSelector,useAppDispatch } from "../app/hook";
 import { setNews, setNewsErrorState, setNewsLoadingState } from "../app/slices/newsSlice";
 import { notifyError } from "../utils/notifications";
 import axios from "axios";
+import HeroSection from "../components/HeroSection";
 
 
 const HomePage = () => {
@@ -55,10 +56,12 @@ const HomePage = () => {
   console.log("30 news", news);
   return (
     <Box>
+      {/* <Box sx={{ height: "100px" }}></Box> */}
+      <HeroSection />
       <Box sx={{ height: "100px" }}></Box>
       <TopStoryCard />
       <NewsSection />
-      <Box sx={{ height: "500px" }}></Box>
+      <Box sx={{ height: "100px" }}></Box>
     </Box>
   );
 };
