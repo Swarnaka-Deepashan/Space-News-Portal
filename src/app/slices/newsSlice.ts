@@ -8,6 +8,8 @@ export interface NewsState {
   newsErrorState: boolean;
   newsLoadingState: boolean;
   newsByIdData: News | null;
+  currentPage:number
+  // postPerpage:number
 }
 
 // Define the initial state using that type
@@ -16,6 +18,8 @@ const initialState: NewsState = {
   newsErrorState: false,
   newsLoadingState: true,
   newsByIdData: null,
+  currentPage:1,
+  // postPerpage:6
   // newsByIdData: {
   //   id: -99,
   //   title: "",
@@ -50,10 +54,14 @@ export const newsSlice = createSlice({
     setNewsById: (state, action: PayloadAction<News>) => {
       state.newsByIdData = action.payload;
     },
+
+    setCurrentPage: (state, action: PayloadAction<number>) => {
+      state.currentPage = action.payload;
+    },
   },
 });
 
-export const { setNewsErrorState, setNewsLoadingState, setNews,setNewsById } = newsSlice.actions;
+export const { setNewsErrorState, setNewsLoadingState, setNews,setNewsById,setCurrentPage } = newsSlice.actions;
 
 // Other code such as selectors can use the imported `RootState` type
 // export const selectCount = (state: RootState) => state.news.value;
