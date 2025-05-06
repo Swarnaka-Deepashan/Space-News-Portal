@@ -1,5 +1,5 @@
 import { Box, Grid, Typography } from "@mui/material";
-import sampleImage08 from "../assets/images/sample-image-08.jpg";
+import sampleImage01 from "../assets/images/sample-image-01.jpg";
 
 
 const About = () => {
@@ -20,7 +20,7 @@ const About = () => {
               width="100%"
               height="100%"
               style={{ objectFit: "cover", objectPosition: "50% 25%" }}
-              src={sampleImage08}
+              src={sampleImage01}
               alt="Top story image"
             />
             {/* Gradient Overlay */}
@@ -72,25 +72,27 @@ const About = () => {
           >
             <Typography
               sx={{
+                mt:"15px",
                 color: "#E0E0E0",
                 fontSize: { xs: "18px", sm: "22px", md: "28px" },
                 lineHeight: { xs: "25px", sm: "30px", md: "35px" },
                 maxWidth: "100%",
                 hyphens: "auto",
+                fontStyle:"italic"
               }}
             >
-              We believe that staying updated with accurate and timely
-              information empowers individuals to make better decisions and
-              engage meaningfully with the world around them. Our mission is to
-              deliver high-quality news content in a user-friendly and
-              accessible way.
+              Stay informed with reliable, up-to-date news on space exploration,
+              missions, and industry trends. Our goal is to deliver quality
+              content in a user-friendly way, helping you engage with the world
+              of space.
               <br />
               <br /> This application uses the Spaceflight News API (SNAPI) to
               fetch the latest news and updates about space exploration,
               missions, and industry developments. <br />
-              <br /> This project was created by Swarnaka Deepashan, a
-              passionate web and mobile developer dedicated to building
-              user-friendly and impactful digital solutions.
+              <br /> This project was developed by Swarnaka Deepashan, a
+              software engineer passionate about web and mobile development. He
+              combined his love for coding with his curiosity about space and
+              brought this project to life.
             </Typography>
             {/* <Box sx={{ display: "flex", gap: "10px", flexWrap: "wrap" }}>
               <InfoChip
