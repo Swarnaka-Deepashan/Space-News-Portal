@@ -16,6 +16,7 @@ import ReadMoreButton from "./ReadMoreButton";
 import { useNavigate } from "react-router-dom";
 import ReadTimeLabel from "./ReadTimeLabel";
 import TitleCard from "./TitleCard";
+import { useState } from "react";
 
 const TopStoryCard: React.FC = () => {
   const news = useAppSelector((state) => state.news.newsData);
@@ -27,6 +28,9 @@ const TopStoryCard: React.FC = () => {
   const topStory = news[0]; // this can be undefinedd
   const navigate = useNavigate();
   const isExtraSmallScreen = useMediaQuery("(max-width:600px)");
+
+  const [imageLoaded, setImageLoaded] = useState(false);
+  
 
   if (newsLoadingState) {
     return (
@@ -236,10 +240,29 @@ const TopStoryCard: React.FC = () => {
                     generateTimeLabel={generateTimeLabel}
                   />
                 </Box>
+                {!imageLoaded && (
+                  <CircularProgress
+                    size={60}
+                    sx={{
+                      position: "absolute",
+                      top: "40%",
+                      left: "40%",
+                      transform: "translate(-50%, -50%)",
+                      zIndex: 1,
+                      color: "#ffffff88",
+                    }}
+                  />
+                )}
                 <img
                   width="100%"
                   height="100%"
-                  style={{ objectFit: "cover", borderRadius: "15px" }}
+                  style={{
+                    objectFit: "cover",
+                    borderRadius: "15px",
+                    display: imageLoaded ? "block" : "none",
+                  }}
+                  onLoad={() => setImageLoaded(true)}
+                  onError={() => setImageLoaded(true)}
                   src={topStory.image_url || sampleImage08}
                   // src={sampleImage08}
                   alt="Top story image"
