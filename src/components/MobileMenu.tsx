@@ -243,6 +243,16 @@ const MobileMenu: React.FC<{
               fontSize: "14px",
             }}
           >{`All rights reserved @ ${getCurrentYear()}`}</Typography>
+          <Typography
+            sx={{
+              fontStyle: "italic",
+              lineHeight: "10px",
+              color: "#E0E0E0",
+              fontSize: "12px",
+              mt:"5px",
+              opacity:0.8
+            }}
+          >SwarnakaDeepashan@gmail.com</Typography>
         </Box>
       </Box>
     </Box>
