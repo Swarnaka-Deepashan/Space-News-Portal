@@ -5,18 +5,18 @@ import { useEffect } from "react";
 import { fetchNews } from "../services/newsService";
 
 // import { useAppSelector } from 'app/hooks'
-import { useAppSelector,useAppDispatch } from "../app/hook";
-import { setNews, setNewsErrorState, setNewsLoadingState } from "../app/slices/newsSlice";
+import {  useAppDispatch } from "../app/hook";
+import {
+  setNews,
+  setNewsErrorState,
+  setNewsLoadingState,
+} from "../app/slices/newsSlice";
 import { notifyError } from "../utils/notifications";
 import axios from "axios";
 import HeroSection from "../components/HeroSection";
 
-
 const HomePage = () => {
-
-  
-
-  const news = useAppSelector((state) => state.news.newsData);
+  // const news = useAppSelector((state) => state.news.newsData);
   const dispatch = useAppDispatch();
 
   useEffect(() => {
@@ -24,7 +24,6 @@ const HomePage = () => {
       try {
         dispatch(setNewsLoadingState(true));
         // dispatch(setNewsErrorState(false));
-
 
         const response = await fetchNews();
 
@@ -53,15 +52,18 @@ const HomePage = () => {
     fetchNewsData();
   }, [dispatch]);
 
-  console.log("30 news", news);
+  // console.log("30 news", news);
   return (
     <Box>
-      {/* <Box sx={{ height: "100px" }}></Box> */}
-      <HeroSection />
-      <Box sx={{ height: "100px" }}></Box>
-      <TopStoryCard />
+      <Box sx={{ mb: { xs: "30px", sm: "40px", md: "50px" } }}>
+        <HeroSection />
+      </Box>
+      <Box sx={{ mb: { xs: "50px", sm: "80px" } }}>
+        <TopStoryCard />
+      </Box>
+      <Box sx={{ mb: { xs: "80px", sm: "80px" } }}>
       <NewsSection />
-      <Box sx={{ height: "100px" }}></Box>
+      </Box>
     </Box>
   );
 };

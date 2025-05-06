@@ -13,6 +13,9 @@ import { Route, Routes } from "react-router-dom";
 import NewsDetailPage from "./pages/NewsDetailPage";
 import AboutPage from "./pages/AboutPage";
 import NotFoundPage from "./pages/NotFoundPage";
+import Layout from "./components/Layout";
+import ScrollToTop from "./utils/ScrollToTop"; 
+
 
 const theme = createTheme({
   typography: {
@@ -55,15 +58,16 @@ function App() {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       {globalStyles}
-      <div className="container">
-        <Routes>
+      <ScrollToTop />
+      <Routes>
+        <Route element={<Layout />}>
           <Route index element={<HomePage />} />
           <Route path="news/:id" element={<NewsDetailPage />} />
           <Route path="about" element={<AboutPage />} />
           <Route path="*" element={<NotFoundPage />} />
-        </Routes>
-        <ToastContainer />
-      </div>
+        </Route>
+      </Routes>
+      <ToastContainer />
     </ThemeProvider>
   );
 }

@@ -1,8 +1,9 @@
-import { Box, Typography, useMediaQuery } from "@mui/material";
+import { Box, CircularProgress, Typography, useMediaQuery } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { generateTimeLabel } from "../utils/helper";
 import ReadMoreButton from "./ReadMoreButton";
 import ReadTimeLabel from "./ReadTimeLabel";
+import { useState } from "react";
 // import { useParams } from "react-router-dom";
 export interface NewsCardProps {
   id: string;
@@ -21,12 +22,15 @@ const NewsCard: React.FC<NewsCardProps> = ({
 
   const navigate = useNavigate();
 
+  const [imageLoaded, setImageLoaded] = useState(false);
+
   return (
     // Main wrapper
     <Box
       sx={{
         // border: "1px solid red",
-        bgcolor: "#1B1B1B",
+        // bgcolor: "#1B1B1B",
+        bgcolor: "#151515",
         width: "100%",
         height: "140px",
         display: "flex",
@@ -40,29 +44,33 @@ const NewsCard: React.FC<NewsCardProps> = ({
         sx={{
           height: "120px",
           width: "120px",
-          //  border: "1px solid red"
+          position: "relative",
+          backgroundColor: "#2a2a2a", // gray background while loading
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
         }}
       >
-        <Box
-          sx={{
-            //   width: { xs: "calc(100vw - 100px)", md: "100%" },
-            //   height: { xs: "calc(100vw - 100px)", md: "100%" },
-            // aspectRatio: { xs: "1 / 1" },
-            width: "100%",
-            height: "100%",
-          }}
-        >
-          <img
-            width="100%"
-            height="100%"
-            style={{
-              objectFit: "cover",
-              // borderRadius: "15px"
-            }}
-            src={imagePath}
-            alt="Top story image"
+        {!imageLoaded && (
+          <CircularProgress
+            size={24}
+            sx={{ position: "absolute", zIndex: 1, color: "#ffffff88" }}
           />
-        </Box>
+        )}
+
+        <img
+          src={imagePath}
+          alt="News preview"
+          width="100%"
+          height="100%"
+          style={{
+            objectFit: "cover",
+            borderRadius: "4px",
+            display: imageLoaded ? "block" : "none",
+          }}
+          onLoad={() => setImageLoaded(true)}
+          onError={() => setImageLoaded(true)}
+        />
       </Box>
 
       <Box

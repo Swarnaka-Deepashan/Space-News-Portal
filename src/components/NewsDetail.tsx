@@ -78,7 +78,13 @@ const NewsDetail = () => {
       );
     } else {
         return (
-          <Box sx={{ display: "flex", flexDirection: "column" }}>
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              mb: { xs: "60px", sm: "100px" },
+            }}
+          >
             <Box sx={{ height: "80dvh" }}>
               <Box
                 sx={{
@@ -166,15 +172,23 @@ const NewsDetail = () => {
                     hyphens: "auto",
                   }}
                 >
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea
+                  {/* Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea
                   laborum minus Debitis magnam, quo assumenda cupiditate odit
                   laborum minus Debitis magnam, quo assumenda cupiditate odit
-                  lab Debitis magnam, quo assumenda cupiditate odit
-                  ipsum porro facilis tempora eum unde, tenetur animi eligendi
-                  perspiciatis dignissimos. Quasi voluptatum animi at officiis.
+                  lab Debitis magnam, quo assumenda cupiditate odit ipsum porro
+                  facilis tempora eum unde, tenetur animi eligendi perspiciatis
+                  dignissimos. Quasi voluptatum animi at officiis. */}
+                  With each advancement, space research continues to reshape
+                  what we know about life, the universe, and everything in
+                  between. From uncovering the origins of galaxies to exploring
+                  the atmospheres of distant exoplanets, every discovery adds a
+                  new layer to our understanding of the cosmos. These findings
+                  challenge existing theories, inspire new technologies, and
+                  even raise questions about the possibility of life beyond
+                  Earth.
                   {/* {newsByIdData.summary} */}
                 </Typography>
-                <Box sx={{ display: "flex", gap: "10px", flexWrap: "wrap" }}>
+                <Box sx={{ display: "flex", gap: "10px", flexWrap: "wrap",mt:"20px" }}>
                   <InfoChip
                     text={
                       newsByIdData.authors[0].name || "Author not available"
