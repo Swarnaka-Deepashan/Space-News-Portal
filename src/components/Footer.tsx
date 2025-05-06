@@ -1,4 +1,4 @@
-import { Box, Grid, IconButton, Typography } from "@mui/material";
+import { Box,  Grid, IconButton, Typography } from "@mui/material";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import XIcon from "@mui/icons-material/X";
@@ -11,16 +11,16 @@ const Footer = () => {
         width: "100%",
         bgcolor: "#151515",
         px: { xs: "20px", md: "40px" },
-        pt:{xs:"20px", sm:"60px",md:"80px"},
-        pb: {xs:"20px", sm:"40px",md:"80px"},
-        mt:"50px"
+        pt: { xs: "20px", sm: "60px", md: "80px" },
+        pb: { xs: "20px", sm: "40px", md: "80px" },
+        mt: "50px",
       }}
     >
       <Grid container spacing={2}>
         {/* Left Description */}
         <Grid
           size={{ xs: 12, sm: 5, md: 3.5 }}
-        //   sx={{ border: "1px solid red" }}
+          //   sx={{ border: "1px solid red" }}
         >
           <Box
             sx={{
@@ -28,7 +28,7 @@ const Footer = () => {
               display: "flex",
               flexDirection: "column",
               gap: "12px",
-            //   border: "1px solid blue",
+              //   border: "1px solid blue",
               width: "100%",
               alignItems: { xs: "center", sm: "start" },
             }}
@@ -74,20 +74,32 @@ const Footer = () => {
             >
               Join Us
             </Typography>
+            {/* <Divider  
+  sx={{
+    my: 2,
+    display: "block",
+    bgcolor: "white", // Default for larger screens
+    opacity: 1,
+    "@media(max-width: 475px)": {
+      bgcolor: "red",
+    },
+  }}
+/> */}
+
           </Box>
         </Grid>
 
         {/* Middle Navigation Columns */}
         <Grid
           size={{ xs: 12, sm: 7, md: 5.5 }}
-        //   sx={{ border: "1px solid red" }}
+          //   sx={{ border: "1px solid red" }}
         >
           <Box
             sx={{
               display: "flex",
               flexDirection: { xs: "row", sm: "row" },
               gap: "30px",
-            //   border: "1px solid blue",
+              //   border: "1px solid blue",
               width: "100%",
               justifyContent: "center",
               "@media(max-width : 475px)": {
@@ -150,16 +162,19 @@ const Footer = () => {
               <Typography sx={{ color: "#E0E0E0" }}>About SpaceNews</Typography>
             </Box>
           </Box>
+          
         </Grid>
 
+       
+
         {/* Social Media Column */}
-        <Grid size={{ xs: 12, md: 3 }} >
+        <Grid size={{ xs: 12, md: 3 }}>
           <Box
             sx={{
               display: "flex",
               flexDirection: "column",
               gap: "10px",
-            //   border: "1px solid blue",
+              //   border: "1px solid blue",
               alignItems: { xs: "center", md: "start" },
             }}
           >
@@ -185,7 +200,9 @@ const Footer = () => {
             <Typography sx={{ color: "#E0E0E0" }}>
               More SpaceNews Social Accounts
             </Typography>
-            <Typography sx={{ color: "#E0E0E0" }}>SpaceNews Newsletters</Typography>
+            <Typography sx={{ color: "#E0E0E0" }}>
+              SpaceNews Newsletters
+            </Typography>
           </Box>
         </Grid>
       </Grid>
