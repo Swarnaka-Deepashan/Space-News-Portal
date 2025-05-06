@@ -47,7 +47,7 @@ const NotFound = () => {
           spacing={"15px"}
           sx={{
             mx: { xs: "20px", sm: "30px", md: "40px" },
-            mt: { xs: "-80px", sm: "-60px", md: "-40px" },
+            // mt: { xs: "-80px", sm: "-60px", md: "-40px" },
             zIndex: 1,
           }}
         >
@@ -100,7 +100,7 @@ const NotFound = () => {
               width: "100%",
             }}
           >
-            <ReadMoreButton onClick={() => navigate("/")} />
+            <ReadMoreButton label="Back to Home" onClick={() => navigate("/")} />
           </Grid>
         </Grid>
       </Box>
